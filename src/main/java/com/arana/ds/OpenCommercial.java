@@ -27,8 +27,24 @@ class OpenCommercial {
     System.out.print("Please enter the name of a company (without spaces): ");
     System.out.flush();        /* Make sure the line is printed immediately. */
     inputLine = keyboard.readLine();
-
-    /* Replace this comment with your solution.  */
+    
+    System.out.println();
+    System.out.println(inputLine);
+    
+    URL url = new URL("http://www." + inputLine + ".com");
+    String[] inLines = new String[5];
+    
+     BufferedReader website = new BufferedReader(new InputStreamReader(url.openStream()));
+     
+     for(int i = 0; i < 5; i++){
+    	 inLines[i] = website.readLine();
+     }
+     
+     // Reversed print
+     for(int i = 0; i < 5; i ++){
+    	 int reverseIndex = 5 - i - 1;
+    	 System.out.println(inLines[reverseIndex]);
+     }
 
   }
 }
